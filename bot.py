@@ -758,5 +758,15 @@ def main() -> None:
     print("🤖 Unified Bot is running. Send /start on Telegram to begin...")
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
-if __name__ == '__main__':
+from flask import Flask
+import threading
+app = Flask(__name__)
+
+@app.route('/')
+def home(): return "✅ Bot is running!"
+
+def run_flask(): app.run(host="0.0.0.0", port=10000)
+
+if __name__ == "__main__":
+    threading.Thread(target=run_flask).start()
     main()
