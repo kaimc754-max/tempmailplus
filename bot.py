@@ -429,9 +429,9 @@ async def auto_fetch(app: Application):
                          display_body_msg = f"HEY THIS YOUR OTP CODE >> `{otp}`"
                          msg = (
                             f"🚨 *NEW OTP RECEIVED!* 🔐\n\n"
-                            f"*From:* {clean_sender}\n"
                             f"*Subject:* {subject}\n\n"
-                            f"**{display_body_msg}**"
+                            f"*OTP:* >`{otp}`\n\n"
+                            f"*NONE MAIL*"
                         )
                     else:
                         display_body = content if content.strip() else "--- Mail body was empty or only contained unreadable data ---"
@@ -441,9 +441,9 @@ async def auto_fetch(app: Application):
                         
                         msg = (
                             f"📩 *New Mail Received!*\n\n"
-                            f"*From:* {clean_sender}\n"
                             f"*Subject:* {subject}\n\n"
-                            f"{display_body_msg}"
+                            f"*OTP:* >`{otp}`\n\n"
+                            f"*NONE MAIL*"
                         )
                     
                     try:
